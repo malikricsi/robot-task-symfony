@@ -2,12 +2,15 @@
 
 namespace App\Entity;
 
+use App\Enum\EntityEnum;
 use App\Interfaces\SoftDeletableInterface;
 use App\Repository\RobotRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=RobotRepository::class)
+ * @ORM\HasLifecycleCallbacks
  */
 class Robot extends Entity implements SoftDeletableInterface
 {
@@ -34,12 +37,12 @@ class Robot extends Entity implements SoftDeletableInterface
     private $power;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, options={"default": "active"})
      */
-    private $state;
+    private $state = EntityEnum::STATE_ACTIVE;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime_immutable", nullable="true")
      */
     private $created_at;
 
@@ -96,7 +99,7 @@ class Robot extends Entity implements SoftDeletableInterface
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?DateTimeImmutable
     {
         return $this->created_at;
     }
@@ -106,6 +109,14 @@ class Robot extends Entity implements SoftDeletableInterface
         $this->created_at = $created_at;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+        $this->setCreatedAt(new \DateTimeImmutable());
     }
 
     public function toArray(): array

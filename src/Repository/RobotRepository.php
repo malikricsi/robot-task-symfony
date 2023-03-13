@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Robot;
 use App\Enum\EntityEnum;
+use App\Repository\Traits\SoftDeletableTrait;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -17,6 +18,8 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class RobotRepository extends ServiceEntityRepository
 {
+    use SoftDeletableTrait;
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Robot::class);

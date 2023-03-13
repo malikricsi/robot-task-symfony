@@ -42,6 +42,4 @@ robot_combat:
 api_robot_combat:
     path: /api/combat
     methods: POST
-    controller: App\Controller\RobotController::combat
-    defaults:
-        api: true
+    controller: App\Controller\RobotController::apiCombat

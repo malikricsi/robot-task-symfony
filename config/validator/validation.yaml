@@ -16,6 +16,3 @@ App\Entity\Robot:
             - PositiveOrZero: ~
         state:
             - Type: string
-            - NotEqualTo:
-                value: deleted
-                message: 'This entity does not exist.'
