@@ -1,3 +1,47 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+robot_index:
+    path: /
+    methods: GET
+    controller: App\Controller\RobotController::index
+
+robot_create:
+    path: /new
+    methods: GET
+    controller: App\Controller\RobotController::new
+
+robot_store:
+    path: /new
+    methods: POST
+    controller: App\Controller\RobotController::new
+
+robot_edit:
+    path: /edit/{id}
+    methods: GET
+    controller: App\Controller\RobotController::edit
+    requirements:
+        id: '\d+'
+
+robot_update:
+    path: /edit/{id}
+    methods: POST
+    controller: App\Controller\RobotController::edit
+    requirements:
+        id: '\d+'
+
+robot_delete:
+    path: /delete/{id}
+    methods: GET
+    controller: App\Controller\RobotController::delete
+    requirements:
+        id: '\d+'
+
+robot_combat:
+    path: /combat
+    methods: POST
+    controller: App\Controller\RobotController::combat
+
+api_robot_combat:
+    path: /api/combat
+    methods: POST
+    controller: App\Controller\RobotController::combat
+    defaults:
+        api: true

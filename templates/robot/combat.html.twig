@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.robot.combat_result'|trans }}{% endblock %}
+
+{% block body %}
+    <h1 class="mt-5 mb-5">{{ 'title.robot.combat_result'|trans }}</h1>
+    <div class="card mb-5">
+        <div class="card-body">
+            <h4 class="mb-3">{{ 'entity.robot.winner_section_title'|trans }}</h4>
+            <div class="mb-1">
+                {{ 'entity.robot.property.id'|trans }}: {{ entity.id }}
+            </div>
+            <div class="mb-1">
+                {{ 'entity.robot.property.name'|trans }}: {{ entity.name }}
+            </div>
+            <div class="mb-1">
+                {{ 'entity.robot.property.type'|trans }}: {{ entity.type }}
+            </div>
+            <div class="mb-1">
+                {{ 'entity.robot.property.power'|trans }}: {{ entity.power }}
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-primary" href="{{ path('robot_index') }}">{{ 'form.robot.button.back'|trans }}</a>
+{% endblock %}

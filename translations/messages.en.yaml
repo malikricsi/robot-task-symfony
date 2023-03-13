@@ -1,0 +1,40 @@
+entity:
+    robot:
+        header:
+            options: 'Options'
+        property:
+            id: 'ID'
+            name: 'Name'
+            power: 'Power'
+            type: 'Type'
+        winner_section_title: "Winner robot's data:"
+
+form:
+    robot:
+        button:
+            add: 'Add a new robot'
+            back: 'Back to the robots'
+            delete: 'Delete'
+            edit: 'Edit'
+            save: 'Save'
+            select_for_combat: 'Select for combat'
+            send_to_combat: 'Send to combat'
+        edit: 'Edit robot'
+        new: 'Add a new robot'
+
+message:
+    entity_deleted: 'Entity deleted.'
+    entity_saved_successfully: 'Entity saved successfully.'
+    entity_updated_successfully: 'Entity updated successfully.'
+    success: 'Success!'
+    error: 'Error!'
+
+title:
+    robot:
+        combat_result: 'Combat results'
+        index: 'Robots'
+
+validation:
+    at_least_two_elements: 'There should be at least two valid elements.'
+    id_should_be_integer: 'ID should be an integer.'
+    entity_does_not_exist_with_id: 'Entity with #:id ID does not exist.'

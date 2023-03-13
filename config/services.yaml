@@ -22,3 +22,7 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Constraint\ExistsInDatabaseTableValidator:
+        tags:
+            - {name: validator.constraint_validator, alias: 'exists_in_database_validator'}

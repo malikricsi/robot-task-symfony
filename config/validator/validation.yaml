@@ -1,0 +1,21 @@
+App\Entity\Robot:
+    properties:
+        name:
+            - NotBlank: ~
+            - Type: string
+            - Length:
+                min: 1
+                max: 255
+        type:
+            - NotBlank: ~
+            - Choice:
+                callback: [App\Enum\RobotEnum, getTypes]
+        power:
+            - NotBlank: ~
+            - Type: integer
+            - PositiveOrZero: ~
+        state:
+            - Type: string
+            - NotEqualTo:
+                value: deleted
+                message: 'This entity does not exist.'
